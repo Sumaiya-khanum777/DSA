@@ -1,4 +1,4 @@
-Given an integer array nums, find the contiguous subarray (containing at least one number)
+/*Given an integer array nums, find the contiguous subarray (containing at least one number)
 which has the largest sum and return its sum.
 
 Example 1:
@@ -13,9 +13,28 @@ Constraints:
 1 <= nums.length <= 3 * 104
 -105 <= nums[i] <= 105
 
+LOGIC--Kadane's Algorithm
+Initialize: max_so_far = 0
+
+max_ending_here = 0
+Loop for each element of the array
+
+(a) max_ending_here = max_ending_here + a[i]
+
+(b) if(max_ending_here < 0) max_ending_here = 0
+
+(c) if(max_so_far < max_ending_here) max_so_far = max_ending_here
+
+return max_so_far
+
+Explanation: Simple idea of the Kadane's algorithm is to look for all positive contiguous segments of the
+array (max_ending_here is used for this). And keep track of maximum sum contiguous segment among all 
+positive segments (max_so_far is used for this). 
+Each time we get a positive sum compare it with max_so_far and update max_so_far if it is greater than max_so_far
 
 SOLUTION:
-______________________________________________________________________________________________________________________________
+*/
+//_____________________________________________________________________________________________________________________________
 class Solution {
     public int maxSubArray(int[] nums) {
         int sum=0, max=nums[0],size=nums.length;
@@ -43,8 +62,9 @@ class Solution {
     
 }
 
-______________________________________________________________________________________________________________________________
+/*
 Input
 [-2,1,-3,4,-1,2,1,-5,4]
 Output
 6
+*/
