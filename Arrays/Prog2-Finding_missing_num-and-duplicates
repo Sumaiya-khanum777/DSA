@@ -21,7 +21,7 @@ public class Array {
 	{
 		int i;
 		
-		// Finding missing value 
+		// Finding duplicates value 
 		for (i = 0; i < size; i++) {
 			int abs_val = Math.abs(arr[i]);
 			if (arr[abs_val - 1] > 0)
@@ -32,7 +32,7 @@ public class Array {
 		    }
 		}
 		
-		// finding duplicates
+		// finding missing value
 		for (i = 0; i < size; i++) {
 			if (arr[i] > 0)
 				System.out.println("And the missing element is " + (i + 1));
