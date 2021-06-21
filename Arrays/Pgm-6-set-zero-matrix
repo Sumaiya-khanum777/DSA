@@ -1,0 +1,85 @@
+/*
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's, and return the matrix.
+
+You must do it in place.
+
+Example 1:
+Input: matrix = [[1,1,1],[1,0,1],[1,1,1]]
+Output: [[1,0,1],[0,0,0],[1,0,1]]
+
+BRUTE FORCE APPROACH:
+--> scan elements one by one
+--> check for zero 
+--> update all values in the row and col
+--> continue the above for all elements
+*/
+
+// SOLUTION:
+//____________________________________________________________________________________________________________________________
+class Solution {
+    public void setZeroes(int[][] matrix) {
+        
+        if(matrix==null || matrix.length==0 || matrix[0].length==0)
+            return;
+        int m=matrix.length, n=matrix[0].length;
+        boolean firstrow_0=false, firstcol_0=false;
+        
+        //set first row to zero
+        for(int j=0; j<n; ++j){
+            if(matrix[0][j] == 0){
+                firstrow_0 = true;
+                break;
+            }
+        }
+ 
+         //set first col to zero
+        for(int i=0; i<m; ++i){
+            if(matrix[i][0] == 0){
+                firstcol_0 = true;
+                break;
+            }
+        }
+ 
+        //mark zeros on first row and column
+        for(int i=1; i<m; ++i){
+            for(int j=1; j<n; j++){
+                if(matrix[i][j] == 0){
+                   matrix[i][0] = 0;
+                   matrix[0][j] = 0;
+                }
+            }
+        }
+ 
+        //use mark to set elements
+        for(int i=1; i<m; ++i){
+            for(int j=1; j<n; ++j){
+                if(matrix[i][0] == 0 || matrix[0][j] == 0){
+                   matrix[i][j] = 0;
+                }
+            }
+        }
+ 
+        //set first row to zero
+        if(firstrow_0){
+            for(int j=0; j<n; ++j)
+                matrix[0][j] = 0;
+        }
+ 
+        
+         //set first col to zero
+        if(firstcol_0){
+            for(int i=0; i<m; ++i)
+                matrix[i][0] = 0;
+        }
+        
+        
+    }
+}
+
+
+/*
+Input
+[[1,1,1],[1,0,1],[1,1,1]]
+Output
+[[1,0,1],[0,0,0],[1,0,1]]
+*/
