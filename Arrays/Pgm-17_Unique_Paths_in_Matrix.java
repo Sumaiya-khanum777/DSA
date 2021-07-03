@@ -28,7 +28,9 @@ Constraints:
 It's guaranteed that the answer will be less than or equal to 2 * 109.
 */
 
-/*____________________________________________________SOLUTION___3____APPROACHES________________________________________________________*/
+//Practice Link: https://leetcode.com/problems/unique-paths/
+
+/*____________________________________________________SOLUTION___(3____APPROACHES)________________________________________________________*/
 
 // *****************************************EXPONENTIAL APPROACH**************************************************************************
 
@@ -66,7 +68,23 @@ class Solution {
     }
 }
 
+//Brute Force
 
+//Using recursion
+
+Code: 
+class Solution {
+    public int uniquePaths(int m, int n) {
+        
+ if (m == 1 || n == 1)
+            return 1;
+ 
+
+        return uniquePaths(m - 1, n) + uniquePaths(m, n - 1);
+        
+        
+    }
+}
 
 // *****************************************Optimised---NCR APPROACH [EFFICIENT WAY]**********************************************************
 
