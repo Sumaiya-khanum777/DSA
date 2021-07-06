@@ -67,7 +67,7 @@ class Solution {
                 res[0] = map.get(target - nums[i]);
                 return res;
             }
-            map.put(nums[i],i);
+            map.put(nums[i],i); // Add to hashtable--map
         }
            return res;
     }
